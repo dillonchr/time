@@ -27,8 +27,8 @@ for line in f:
     if rightMonth and len(line) > 2:
         day = line.split(";")[1:-1]
         for field in day:
-           count, unit = re.findall(r'^(\d+)([bhprv])$', field)[0]
-           report[unit] += int(count)
+           count, unit = re.findall(r'^([\d.]+)([bhprv])$', field)[0]
+           report[unit] += float(count)
 f.close()
 
 for unit, total in report.items():
